@@ -21,6 +21,8 @@ complex IT environments with ease.
 
 ## Ansible Architecture
 
+![Ansible Architecture](ansible_arch.png)
+
 1.  **Control Node**: The system where Ansible is installed and from
     which automation tasks are executed.
 2.  **Managed Nodes**: The servers, cloud instances, or devices that are
@@ -32,6 +34,7 @@ complex IT environments with ease.
 5.  **Playbooks**: YAML files containing sets of instructions for tasks.
 6.  **Plugins**: Extend Ansible functionality (e.g., connection types,
     callbacks, lookups).
+
 
 ## How Ansible Works
 
