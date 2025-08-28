@@ -1,0 +1,12 @@
+---
+- name: nginx
+  hosts: managed_nodes
+  become: yes 
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    - name: Ensure installation of nginx
+      apt: 
+        name: nginx
+        state: present 
