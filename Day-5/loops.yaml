@@ -1,0 +1,14 @@
+---
+  - name: loop over the items
+    hosts: managed_nodes
+    gather_facts: no  
+    vars:
+      fruits:
+        - Apple
+        - Mango 
+        - Banana
+    tasks:
+    - name: Loop over the fruits
+      debug:
+        msg: " loop over the {{ item }}"
+      loop: "{{ fruits }}"
