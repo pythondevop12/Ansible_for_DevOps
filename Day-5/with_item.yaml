@@ -1,0 +1,16 @@
+---
+- name: use item with in loop
+  hosts: managed_nodes
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: install some sw
+      apt:
+        name: "{{ item }}"
+        state: present 
+      with_items:
+        - vim
+        - curl
+        - tree
+        - unzip

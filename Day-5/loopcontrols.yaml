@@ -1,0 +1,17 @@
+---
+- name: controls use in loops
+  hosts: managed_nodes
+  gather_facts: false
+
+  vars:
+   mylist:
+    - a 
+    - b
+    - c
+  tasks:
+    - name: just test the controls in lists
+      debug: 
+        msg: "test my all the {{ item }} and the index is {{ idx }}"
+      loop: "{{ mylist }}"
+      loop_control:
+        index_var: idx

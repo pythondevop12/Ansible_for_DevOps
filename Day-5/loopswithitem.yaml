@@ -1,0 +1,14 @@
+---
+ - name: we are checking with item
+   hosts: managed_nodes
+   gather_facts: true
+
+   vars:
+    - colour:
+      - Blue
+      - Black
+      - Yellow
+      - Orange
+
+   tasks:
+    - name: checking with loops

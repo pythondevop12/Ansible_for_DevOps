@@ -1,0 +1,14 @@
+---
+- name: check the dictionary items
+  hosts: managed_nodes
+  gather_facts: false
+  vars:
+    sw:
+      - { "name": "git", "cmd": "git init" }
+      - { "name": "shell", "cmd": "bin/bash" }
+
+  tasks:
+    - name: itterate over dictionary
+      debug:
+        msg: "the software name is {{item.name}} and command is {{item.cmd}}"
+      loop: "{{ sw }}"
