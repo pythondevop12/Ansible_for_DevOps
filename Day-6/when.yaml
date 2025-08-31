@@ -1,0 +1,19 @@
+---
+- name: just for testing
+  hosts: managed_nodes
+  gather_facts: yes
+  become: true
+
+  vars:
+    software:
+      - {name: 'git', state: 'present' }
+      - {name: 'docker',  state: 'present' }
+      - {name: 'nginx', state: 'present' }
+  
+  tasks:
+  - name: manage softwares
+    apt:
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
+    loop: "{{ software }}"
+    when: item.name != 'docker'
