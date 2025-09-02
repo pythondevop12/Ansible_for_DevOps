@@ -1,0 +1,13 @@
+---
+- name: list variable
+  hosts: managed_nodes
+  gather_facts: no
+  vars:
+    words:
+      - hello: world
+      - fix: issue
+      - test: pass
+  tasks:
+    - name: just printing  the list variables
+      debug:
+        msg: "all the items will list here {{ words }}"

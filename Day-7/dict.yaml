@@ -1,0 +1,16 @@
+---
+- name: Install software with state
+  hosts: managed_nodes
+  become: yes
+
+  vars:
+    software:
+      - { name: git, state: present }
+      - { name: nginx, state: absent }
+
+  tasks:
+    - name: Manage software
+      apt:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      loop: "{{ software }}"

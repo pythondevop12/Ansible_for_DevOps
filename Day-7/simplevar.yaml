@@ -1,0 +1,16 @@
+---
+- name: simple variable
+  hosts: managed_nodes
+  gather_facts: no
+  vars:
+   pkg: git
+  
+  tasks:
+    - name: just testing simple variable
+      debug:
+        msg: "just print the {{ pkg }}"
+    - name: just testing simple variable
+      apt:
+        name: "{{ pkg }}"
+        state: present
+      
